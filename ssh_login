@@ -131,7 +131,7 @@ function AutoLogin(){
     pem=${CONFIG[6]}
     if [ -n "$pem" ] ;then
     expect -c "
-        spawn ssh -p ${CONFIG[2]} -i ${CONFIG[6]} ${CONFIG[4]}@${CONFIG[3]}
+        spawn ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -p ${CONFIG[2]} -i ${CONFIG[6]} ${CONFIG[4]}@${CONFIG[3]}
         ${command}
     "
     else
